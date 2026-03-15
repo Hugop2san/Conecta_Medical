@@ -1,0 +1,11 @@
+[
+  {
+    "id": "f4df31c0-00bc-4ecf-bd20-7ff1c4f26a0a",
+    "nome": "Dr. Joao Silva",
+    "crm": "123456-SP",
+    "especialidade": "Clinica Geral",
+    "precoConsultaHora": 180.0,
+    "atendimentosPorHora": 2,
+    "ativo": true
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "87f94634-6d28-4d44-9446-9f17b5145d21",
+    "nomeSala": "Sala Paulista 01",
+    "endereco": "Av. Paulista, 1000",
+    "bairro": "Bela Vista",
+    "cidade": "Sao Paulo",
+    "precoAluguelHora": 80.0,
+    "ativa": true
+  },
+  {
+    "id": "48f73026-3520-456e-844a-c0156e8f7416",
+    "nomeSala": "Sala Tatuape 02",
+    "endereco": "Rua Serra de Braganca, 1200",
+    "bairro": "Tatuape",
+    "cidade": "Sao Paulo",
+    "precoAluguelHora": 65.0,
+    "ativa": true
+  }
+]

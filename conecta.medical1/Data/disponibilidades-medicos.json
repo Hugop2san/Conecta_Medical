@@ -1,0 +1,18 @@
+[
+  {
+    "id": "5f6a4043-5ab2-4881-bcd5-41090158c669",
+    "medicoId": "f4df31c0-00bc-4ecf-bd20-7ff1c4f26a0a",
+    "data": "2026-03-20",
+    "horaInicio": "09:00:00",
+    "horaFim": "12:00:00",
+    "modalidade": "Presencial"
+  },
+  {
+    "id": "54aa25ec-fca2-425c-bec7-547f11cf2717",
+    "medicoId": "f4df31c0-00bc-4ecf-bd20-7ff1c4f26a0a",
+    "data": "2026-03-20",
+    "horaInicio": "14:00:00",
+    "horaFim": "16:00:00",
+    "modalidade": "Online"
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ba3d10dc-f1d9-4f83-8345-ad6bff892537",
+    "salaParceiraId": "87f94634-6d28-4d44-9446-9f17b5145d21",
+    "data": "2026-03-20",
+    "horaInicio": "08:00:00",
+    "horaFim": "12:00:00",
+    "precoSala": 80.0,
+    "ativa": true
+  },
+  {
+    "id": "b49db204-16f2-4c9b-bf75-16d4f0cb261a",
+    "salaParceiraId": "87f94634-6d28-4d44-9446-9f17b5145d21",
+    "data": "2026-03-21",
+    "horaInicio": "13:00:00",
+    "horaFim": "18:00:00",
+    "precoSala": 80.0,
+    "ativa": true
+  },
+  {
+    "id": "42a6f836-cf4d-44e5-b190-ef99f2f3217f",
+    "salaParceiraId": "48f73026-3520-456e-844a-c0156e8f7416",
+    "data": "2026-03-20",
+    "horaInicio": "09:00:00",
+    "horaFim": "17:00:00",
+    "precoSala": 65.0,
+    "ativa": true
+  }
+]

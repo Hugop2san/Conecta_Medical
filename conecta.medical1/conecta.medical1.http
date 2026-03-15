@@ -1,0 +1,6 @@
+@conecta.medical1_HostAddress = http://localhost:5207
+
+GET {{conecta.medical1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

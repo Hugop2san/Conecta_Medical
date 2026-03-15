@@ -1,0 +1,50 @@
+[
+  {
+    "id": "3449faee-a3e5-4e98-98c7-17c913e53bfc",
+    "pacienteId": "d5622e65-1e00-4e88-ac01-028f877f97a1",
+    "nomePaciente": "Ana Souza",
+    "telefonePaciente": "11999990000",
+    "emailPaciente": "ana@email.com",
+    "bairro": "Tatuape",
+    "cidade": "Sao Paulo",
+    "orcamentoMaximo": 200,
+    "status": 1,
+    "criadaEmUtc": "2026-03-15T21:28:59.7409379Z",
+    "atualizadaEmUtc": "2026-03-15T21:28:59.7409379Z",
+    "mensagens": [
+      {
+        "id": "b884bbec-8b77-48d9-8c61-6c86b4e78b22",
+        "autor": 1,
+        "texto": "Ola preciso que voce encontre um medico para uma consulta que seja proximo ao meu or\u00E7amento.",
+        "criadaEmUtc": "2026-03-15T21:28:59.7409379Z"
+      }
+    ]
+  },
+  {
+    "id": "4359d329-0777-41de-b147-ca39b6a5b8f6",
+    "pacienteId": "d5622e65-1e00-4e88-ac01-028f877f97a1",
+    "nomePaciente": "Ana Souza",
+    "telefonePaciente": "11999990000",
+    "emailPaciente": "ana@email.com",
+    "bairro": "Tatuape",
+    "cidade": "Sao Paulo",
+    "orcamentoMaximo": 200,
+    "status": 2,
+    "criadaEmUtc": "2026-03-15T21:39:33.8615229Z",
+    "atualizadaEmUtc": "2026-03-15T22:09:00.5783168Z",
+    "mensagens": [
+      {
+        "id": "51a39177-753b-4738-a119-7e8ae472b91e",
+        "autor": 1,
+        "texto": "Ola preciso que voce encontre um medico para uma consulta que seja proximo ao meu or\u00E7amento... de uma consulta !",
+        "criadaEmUtc": "2026-03-15T21:39:33.8615229Z"
+      },
+      {
+        "id": "3f6e4fc8-e596-49a3-9835-3bfff4ea7de2",
+        "autor": 2,
+        "texto": "Melhor opcao encontrada: consulta com valor compativel com seu orcamento. Posso seguir com os proximos detalhes.",
+        "criadaEmUtc": "2026-03-15T22:09:00.5782984Z"
+      }
+    ]
+  }
+]
