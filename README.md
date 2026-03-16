@@ -10,6 +10,16 @@ Web API ASP.NET Core (.NET 8) para MVP de agendamento de Clinica Geral com:
 
 ## Estrutura
 
+O projeto Conecta Medical está dividido em duas partes principais:
+
+### Frontend
+Interface da plataforma onde pacientes e médicos interagem com o sistema.
+
+➡️ Acesse o frontend aqui:  
+https://github.com/Hugop2san/Conecta_Medical/tree/frontend
+
+### Backend
+
 - `conecta.medical1/Domain`: entidades e enums
 - `conecta.medical1/Application`: contratos, DTOs e servicos de negocio
 - `conecta.medical1/Infrastructure`: repositorio JSON e seed
@@ -17,6 +27,7 @@ Web API ASP.NET Core (.NET 8) para MVP de agendamento de Clinica Geral com:
 - `conecta.medical1/Data`: armazenamento local JSON
 - `conecta.medical1/SeedData`: arquivos de seed inicial
 - `conecta.medical1.Tests`: testes xUnit de regras de agendamento
+
 
 ## Executar
 
