@@ -56,10 +56,10 @@ export const ProfilePage: React.FC = () => {
         </div>
 
         {[
-          { icon: User, label: 'Nome completo', value: name, setter: setName },
-          { icon: Mail, label: 'E-mail', value: user?.email || '', setter: () => {} },
-          { icon: Phone, label: 'Telefone', value: phone, setter: setPhone },
-          { icon: MapPin, label: 'Cidade', value: city, setter: setCity },
+          { icon: User, label: 'Nome completo', value: name, setter: setName, editable: true },
+          { icon: Mail, label: 'E-mail', value: user?.email || '', setter: (_value: string) => {}, editable: false },
+          { icon: Phone, label: 'Telefone', value: phone, setter: setPhone, editable: true },
+          { icon: MapPin, label: 'Cidade', value: city, setter: setCity, editable: true },
         ].map((field, i) => (
           <div key={i} className="flex items-center gap-4 p-3 rounded-xl bg-slate-50">
             <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-slate-400 shrink-0">
@@ -67,7 +67,7 @@ export const ProfilePage: React.FC = () => {
             </div>
             <div className="flex-1">
               <div className="text-xs text-slate-400 font-medium">{field.label}</div>
-              {editing && field.setter !== (() => {}) ? (
+              {editing && field.editable ? (
                 <input
                   value={field.value}
                   onChange={e => field.setter(e.target.value)}

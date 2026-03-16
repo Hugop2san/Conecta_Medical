@@ -13,7 +13,8 @@ import {
   Search
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { MOCK_DOCTORS } from '../constants';
+import { listDoctors } from '../services/conectaApi';
+import { User as DoctorUser } from '../types';
 
 const MOCK_TRIAGE_RESPONSES = [
   {
@@ -46,6 +47,7 @@ export const TriagePage: React.FC = () => {
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [triageResult, setTriageResult] = useState<any>(null);
+  const [recommendedDoctors, setRecommendedDoctors] = useState<DoctorUser[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -53,6 +55,27 @@ export const TriagePage: React.FC = () => {
   };
 
   useEffect(scrollToBottom, [messages]);
+
+  useEffect(() => {
+    let mounted = true;
+
+    const loadDoctors = async () => {
+      try {
+        const data = await listDoctors();
+        if (!mounted) return;
+        setRecommendedDoctors(data.slice(0, 2));
+      } catch {
+        if (!mounted) return;
+        setRecommendedDoctors([]);
+      }
+    };
+
+    loadDoctors();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -185,7 +208,7 @@ export const TriagePage: React.FC = () => {
                     <Stethoscope size={18} className="text-primary" />
                     Médicos Recomendados
                   </h3>
-                  {MOCK_DOCTORS.slice(0, 2).map((doc) => (
+                  {recommendedDoctors.map((doc) => (
                     <div key={doc.id} className="card p-4 hover:border-primary/30 transition-all cursor-pointer">
                       <div className="flex gap-3 items-center">
                         <img src={doc.photo} alt={doc.name} className="w-12 h-12 rounded-xl object-cover" referrerPolicy="no-referrer" />
@@ -197,6 +220,11 @@ export const TriagePage: React.FC = () => {
                       </div>
                     </div>
                   ))}
+                  {recommendedDoctors.length === 0 && (
+                    <div className="card p-4 text-sm text-slate-500">
+                      Nenhum medico disponivel no backend para recomendacao.
+                    </div>
+                  )}
                   <button className="w-full py-3 rounded-xl border border-slate-200 text-slate-700 font-bold text-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2">
                     <Search size={16} />
                     Ver todos os especialistas

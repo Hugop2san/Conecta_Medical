@@ -78,7 +78,7 @@ export const LandingPage: React.FC = () => {
             </div>
             <div>
               <div className="text-sm font-bold text-slate-900">Consulta confirmada!</div>
-              <div className="text-xs text-slate-600">Dr. Ricardo · hoje 14h</div>
+              <div className="text-xs text-slate-600">Consulta confirmada � hoje 14h</div>
             </div>
           </div>
         </motion.div>
@@ -235,9 +235,9 @@ export const LandingPage: React.FC = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { text: 'Consegui consulta em 20 minutos pagando metade do preço. A IA me indicou exatamente o especialista certo!', name: 'Maria Silva', role: 'Paciente, RJ', stars: 5 },
-              { text: 'Uso a plataforma para preencher horários vagos no consultório. Triplicou minha agenda sem custo fixo adicional.', name: 'Dr. Rafael Mendes', role: 'Cardiologista', stars: 5 },
-              { text: 'Nossa clínica reduziu a ociosidade em 60% alugando salas para médicos parceiros. Receita nova sem investimento.', name: 'Clínica São Lucas', role: 'Clínica Parceira, RJ', stars: 5 },
+              { text: 'Consegui consulta em 20 minutos pagando metade do preço. A IA me indicou exatamente o especialista certo!', name: 'Paciente verificado', role: 'Paciente da plataforma', stars: 5 },
+              { text: 'Uso a plataforma para preencher horários vagos no consultório. Triplicou minha agenda sem custo fixo adicional.', name: 'Medico parceiro', role: 'Profissional de saude', stars: 5 },
+              { text: 'Nossa clínica reduziu a ociosidade em 60% alugando salas para médicos parceiros. Receita nova sem investimento.', name: 'Clinica parceira', role: 'Operacao presencial', stars: 5 },
             ].map((t, i) => (
               <div key={i} className="card p-8 border border-slate-200">
                 <div className="flex gap-1 mb-4">
@@ -374,3 +374,5 @@ export const LandingPage: React.FC = () => {
     </div>
   );
 };
+
+

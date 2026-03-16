@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Wallet, Plus, ArrowDownLeft, ArrowUpRight, CreditCard, QrCode, TrendingUp, ShieldCheck } from 'lucide-react';
 
 const TRANSACTIONS = [
-  { id: 1, type: 'credit', desc: 'Depósito via PIX', value: 500, date: '15/03/2026', status: 'Concluído' },
-  { id: 2, type: 'debit', desc: 'Consulta — Dr. Ricardo Mendes', value: -350, date: '14/03/2026', status: 'Escrow' },
-  { id: 3, type: 'credit', desc: 'Reembolso — consulta cancelada', value: 120, date: '10/03/2026', status: 'Concluído' },
-  { id: 4, type: 'debit', desc: 'Consulta — Dra. Fernanda Lima', value: -400, date: '05/03/2026', status: 'Concluído' },
+  { id: 1, type: 'credit', desc: 'Deposito via PIX', value: 500, date: '15/03/2026', status: 'Concluido' },
+  { id: 2, type: 'debit', desc: 'Consulta agendada', value: -350, date: '14/03/2026', status: 'Escrow' },
+  { id: 3, type: 'credit', desc: 'Reembolso de consulta cancelada', value: 120, date: '10/03/2026', status: 'Concluido' },
+  { id: 4, type: 'debit', desc: 'Consulta concluida', value: -400, date: '05/03/2026', status: 'Concluido' },
 ];
 
 export const WalletPage: React.FC = () => {
@@ -17,11 +17,15 @@ export const WalletPage: React.FC = () => {
   const [success, setSuccess] = useState(false);
 
   const handleDeposit = () => {
-    const val = Number(depositValue);
-    if (val > 0) {
-      setBalance(b => b + val);
+    const value = Number(depositValue);
+    if (value > 0) {
+      setBalance((current) => current + value);
       setSuccess(true);
-      setTimeout(() => { setSuccess(false); setShowDeposit(false); setDepositValue(''); }, 2000);
+      setTimeout(() => {
+        setSuccess(false);
+        setShowDeposit(false);
+        setDepositValue('');
+      }, 2000);
     }
   };
 
@@ -29,18 +33,17 @@ export const WalletPage: React.FC = () => {
     <div className="space-y-8 max-w-3xl">
       <div>
         <h1 className="text-3xl font-bold text-slate-900 mb-1">Minha Carteira</h1>
-        <p className="text-slate-500">Gerencie seu saldo e pagamentos com segurança</p>
+        <p className="text-slate-500">Gerencie seu saldo e pagamentos com seguranca</p>
       </div>
 
-      {/* Balance cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="card p-6 bg-primary text-white col-span-1 md:col-span-1">
           <div className="flex items-center gap-2 mb-3">
             <Wallet size={20} />
-            <span className="text-sm font-medium opacity-80">Saldo disponível</span>
+            <span className="text-sm font-medium opacity-80">Saldo disponivel</span>
           </div>
           <div className="text-3xl font-bold mb-1">R$ {balance.toFixed(2).replace('.', ',')}</div>
-          <div className="text-xs opacity-70">Disponível para consultas</div>
+          <div className="text-xs opacity-70">Disponivel para consultas</div>
         </div>
         <div className="card p-6">
           <div className="flex items-center gap-2 mb-3 text-yellow-600">
@@ -48,7 +51,7 @@ export const WalletPage: React.FC = () => {
             <span className="text-sm font-medium">Em Escrow</span>
           </div>
           <div className="text-3xl font-bold text-slate-900">R$ {escrow.toFixed(2).replace('.', ',')}</div>
-          <div className="text-xs text-slate-500">Retido até consulta</div>
+          <div className="text-xs text-slate-500">Retido ate consulta</div>
         </div>
         <div className="card p-6">
           <div className="flex items-center gap-2 mb-3 text-green-600">
@@ -60,12 +63,8 @@ export const WalletPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Actions */}
       <div className="flex gap-3">
-        <button
-          onClick={() => setShowDeposit(!showDeposit)}
-          className="btn-primary flex items-center gap-2"
-        >
+        <button onClick={() => setShowDeposit(!showDeposit)} className="btn-primary flex items-center gap-2">
           <Plus size={18} /> Adicionar saldo
         </button>
         <button className="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 font-medium hover:bg-slate-50 transition-all flex items-center gap-2">
@@ -73,7 +72,6 @@ export const WalletPage: React.FC = () => {
         </button>
       </div>
 
-      {/* Deposit form */}
       {showDeposit && (
         <div className="card p-6 border-2 border-primary/20 space-y-4">
           <h3 className="font-bold text-slate-900 text-lg">Adicionar saldo</h3>
@@ -91,15 +89,15 @@ export const WalletPage: React.FC = () => {
               <input
                 type="number"
                 value={depositValue}
-                onChange={e => setDepositValue(e.target.value)}
+                onChange={(event) => setDepositValue(event.target.value)}
                 placeholder="0,00"
                 className="input-field pl-10"
               />
             </div>
             <div className="flex gap-2 mt-2">
-              {[50, 100, 200, 500].map(v => (
-                <button key={v} onClick={() => setDepositValue(String(v))} className="px-3 py-1 text-sm rounded-lg bg-slate-100 hover:bg-primary/10 hover:text-primary transition-all font-medium">
-                  R$ {v}
+              {[50, 100, 200, 500].map((value) => (
+                <button key={value} onClick={() => setDepositValue(String(value))} className="px-3 py-1 text-sm rounded-lg bg-slate-100 hover:bg-primary/10 hover:text-primary transition-all font-medium">
+                  R$ {value}
                 </button>
               ))}
             </div>
@@ -115,7 +113,7 @@ export const WalletPage: React.FC = () => {
                 <QrCode size={20} className={depositMethod === 'pix' ? 'text-primary' : 'text-slate-400'} />
                 <div className="text-left">
                   <div className="font-bold text-sm">PIX</div>
-                  <div className="text-xs text-slate-500">Instantâneo</div>
+                  <div className="text-xs text-slate-500">Instantaneo</div>
                 </div>
               </button>
               <button
@@ -124,39 +122,38 @@ export const WalletPage: React.FC = () => {
               >
                 <CreditCard size={20} className={depositMethod === 'card' ? 'text-primary' : 'text-slate-400'} />
                 <div className="text-left">
-                  <div className="font-bold text-sm">Cartão</div>
-                  <div className="text-xs text-slate-500">Crédito/Débito</div>
+                  <div className="font-bold text-sm">Cartao</div>
+                  <div className="text-xs text-slate-500">Credito/Debito</div>
                 </div>
               </button>
             </div>
           </div>
 
           <button onClick={handleDeposit} disabled={!depositValue} className="btn-primary w-full disabled:opacity-50">
-            Confirmar depósito
+            Confirmar deposito
           </button>
         </div>
       )}
 
-      {/* Transactions */}
       <div>
         <h2 className="text-xl font-bold text-slate-900 mb-4">Extrato</h2>
         <div className="card divide-y divide-slate-100">
-          {TRANSACTIONS.map(t => (
-            <div key={t.id} className="p-4 flex items-center justify-between">
+          {TRANSACTIONS.map((transaction) => (
+            <div key={transaction.id} className="p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${t.type === 'credit' ? 'bg-green-50 text-green-500' : 'bg-red-50 text-red-500'}`}>
-                  {t.type === 'credit' ? <ArrowDownLeft size={18} /> : <ArrowUpRight size={18} />}
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${transaction.type === 'credit' ? 'bg-green-50 text-green-500' : 'bg-red-50 text-red-500'}`}>
+                  {transaction.type === 'credit' ? <ArrowDownLeft size={18} /> : <ArrowUpRight size={18} />}
                 </div>
                 <div>
-                  <div className="font-medium text-slate-900 text-sm">{t.desc}</div>
-                  <div className="text-xs text-slate-400">{t.date}</div>
+                  <div className="font-medium text-slate-900 text-sm">{transaction.desc}</div>
+                  <div className="text-xs text-slate-400">{transaction.date}</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className={`font-bold ${t.type === 'credit' ? 'text-green-600' : 'text-red-500'}`}>
-                  {t.type === 'credit' ? '+' : ''}R$ {Math.abs(t.value)}
+                <div className={`font-bold ${transaction.type === 'credit' ? 'text-green-600' : 'text-red-500'}`}>
+                  {transaction.type === 'credit' ? '+' : ''}R$ {Math.abs(transaction.value)}
                 </div>
-                <div className={`text-xs ${t.status === 'Escrow' ? 'text-yellow-600' : 'text-slate-400'}`}>{t.status}</div>
+                <div className={`text-xs ${transaction.status === 'Escrow' ? 'text-yellow-600' : 'text-slate-400'}`}>{transaction.status}</div>
               </div>
             </div>
           ))}
@@ -166,7 +163,7 @@ export const WalletPage: React.FC = () => {
       <div className="card p-4 bg-slate-50 flex gap-3 items-start">
         <ShieldCheck size={20} className="text-primary shrink-0 mt-0.5" />
         <p className="text-sm text-slate-600">
-          <strong>Pagamento protegido por escrow.</strong> O valor das consultas fica retido em nossa plataforma e só é liberado ao médico após a realização da consulta. Em caso de cancelamento, o reembolso é automático.
+          <strong>Pagamento protegido por escrow.</strong> O valor das consultas fica retido em nossa plataforma e so e liberado apos a realizacao da consulta. Em caso de cancelamento, o reembolso e automatico.
         </p>
       </div>
     </div>
